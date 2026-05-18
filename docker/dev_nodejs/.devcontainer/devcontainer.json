@@ -1,0 +1,16 @@
+{
+  "name": "my node js",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "forwardPorts": [5173, 3300, 22],
+  "postCreateCommand": "npm install express && service ssh start && echo 'Ready!'",
+  "appPort":["2222:22"],
+  "mounts": [
+    "source=D:/data/container_data/dist,target=/workspaces/pknu26/docker/dev_nodejs/dist,type=bind"
+  ]
+}
+

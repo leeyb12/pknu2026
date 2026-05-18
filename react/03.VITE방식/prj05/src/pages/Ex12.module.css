@@ -1,0 +1,59 @@
+/* Ex12.module.css */
+
+.box {
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* 메시지 스타일 */
+.box p {
+  margin: 6px 0;
+  padding: 8px 12px;
+  background-color: #f1f3f5;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+/* 버튼 스타일 */
+button {
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #357ab8;
+}
+
+/* input 스타일 */
+input[type="text"] {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-size: 0.95rem;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 4px rgba(74,144,226,0.5);
+}
+
+/* 섹션 구분 */
+section {
+  padding: 16px;
+  border-radius: 8px;
+}
