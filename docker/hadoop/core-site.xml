@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <!-- Hadoop의 HDFS 기본 통신 주소를 namenode 호스트의 9000번 포트로 지정합니다 -->
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://namenode:9000</value>
+    </property>
+
+    <!-- HDFS Web UI 브라우저 상의 직접 업로드 동작을 위한 CORS 설정 -->
+    <property>
+        <name>hadoop.http.filter.initializers</name>
+        <value>org.apache.hadoop.security.HttpCrossOriginFilterInitializer</value>
+    </property>
+    <property>
+        <name>hadoop.http.cross-origin.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hadoop.http.cross-origin.allowed-origins</name>
+        <value>*</value>
+    </property>
+    <property>
+        <name>hadoop.http.cross-origin.allowed-methods</name>
+        <value>GET,POST,PUT,DELETE,HEAD,OPTIONS</value>
+    </property>
+    <property>
+        <name>hadoop.http.cross-origin.allowed-headers</name>
+        <value>X-Requested-With,Content-Type,Accept,Origin</value>
+    </property>
+
+    <!-- HDFS Web UI의 기본 접속 사용자명을 root로 설정하여 권한 문제 방지 (학생 실습용) -->
+    <property>
+        <name>hadoop.http.staticuser.user</name>
+        <value>root</value>
+    </property>
+</configuration>

@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  namenode:
+    build: .
+    container_name: namenode
+    hostname: namenode
+    environment:
+      - NODE_TYPE=namenode
+    ports:
+      - "9870:9870" # NameNode HDFS Web UI (호스트에서 http://localhost:9870 으로 접속)
+      - "9000:9000" # NameNode 통신 포트
+    volumes:
+      - namenode_data:/hadoop/dfs/name
+      - ./share:/share # Windows 호스트와 파일 공유용 볼륨 (여기에 파일을 넣으면 컨테이너 안에서 보임)
+    networks:
+      - hadoop-net
+
+  datanode1:
+    build: .
+    container_name: datanode1
+    hostname: datanode1
+    environment:
+      - NODE_TYPE=datanode
+    depends_on:
+      - namenode
+    ports:
+      - "127.0.0.2:9864:9864" # datanode1 Web UI 통신을 위한 로컬 루프백 바인딩
+    volumes:
+      - datanode1_data:/hadoop/dfs/data
+    networks:
+      - hadoop-net
+
+  datanode2:
+    build: .
+    container_name: datanode2
+    hostname: datanode2
+    environment:
+      - NODE_TYPE=datanode
+    depends_on:
+      - namenode
+    ports:
+      - "127.0.0.3:9864:9864" # datanode2 Web UI 통신을 위한 로컬 루프백 바인딩
+    volumes:
+      - datanode2_data:/hadoop/dfs/data
+    networks:
+      - hadoop-net
+
+  datanode3:
+    build: .
+    container_name: datanode3
+    hostname: datanode3
+    environment:
+      - NODE_TYPE=datanode
+    depends_on:
+      - namenode
+    ports:
+      - "127.0.0.4:9864:9864" # datanode3 Web UI 통신을 위한 로컬 루프백 바인딩
+    volumes:
+      - datanode3_data:/hadoop/dfs/data
+    networks:
+      - hadoop-net
+
+# 각 노드들의 데이터가 컨테이너 재생성 시에도 소실되지 않도록 볼륨 등록
+volumes:
+  namenode_data:
+  datanode1_data:
+  datanode2_data:
+  datanode3_data:
+
+    # 컨테이너들이 서로 호스트 이름(namenode, datanode1 등)으로 통신할 수 있는 사설망 구성
+networks:
+  hadoop-net:
+    driver: bridge

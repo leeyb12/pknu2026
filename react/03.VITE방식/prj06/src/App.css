@@ -1,0 +1,107 @@
+/* App.css */
+
+/* 전체 레이아웃 */
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9fafb;
+  color: #333;
+}
+
+/* 네비게이션 바 */
+nav {
+  background-color: #4a90e2;
+  padding: 12px 20px;
+  display: flex;
+  gap: 16px;
+}
+
+/* 링크 스타일 */
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #ffdd57;
+}
+
+/* 페이지 컨테이너 */
+.container {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 제목 스타일 */
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #4a90e2;
+}
+
+/* 버튼 스타일 */
+button {
+  background-color: #4a90e2;
+  /* 기본 파란색 */
+  color: #fff;
+  /* 글자색 흰색 */
+  border: none;
+  margin: 20px;
+  padding: 10px 18px;
+  /* 여백 조금 넉넉하게 */
+  border-radius: 6px;
+  /* 둥근 모서리 */
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  /* 부드러운 전환 효과 */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  /* 은은한 그림자 */
+}
+
+/* 호버 시 효과 */
+button:hover {
+  background-color: #357ab8;
+  /* 조금 더 진한 파란색 */
+  transform: translateY(-2px);
+  /* 살짝 위로 올라가는 느낌 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 클릭 시 효과 */
+button:active {
+  transform: translateY(0);
+  /* 원래 위치로 */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* 비활성화 버튼 */
+button:disabled {
+  background-color: #b0c4de;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+.light-mode {
+  background-color: antiquewhite;
+  color: rgb(10, 104, 107);
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
