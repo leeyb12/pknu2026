@@ -5,6 +5,7 @@ def generate_docker_compose(num_containers=12):
         user_id = f"pkuser{i:02d}"
         hostname = f"PK{i:02d}"
         port = f"22{i:02d}:22"
+        port2 = f"80{i:02d}:8080"
         volume = f"D:/data/container_ssh/{user_id}:/home/pkuser/data"
 
         lines.append(f"  {user_id}:")
@@ -13,6 +14,7 @@ def generate_docker_compose(num_containers=12):
         lines.append(f"    hostname: {hostname}")
         lines.append(f"    ports:")
         lines.append(f"      - \"{port}\"")
+        lines.append(f"      - \"{port2}\"")
         lines.append(f"    restart: unless-stopped")
         lines.append(f"    volumes:")
         lines.append(f"      - {volume}")
